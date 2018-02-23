@@ -1,4 +1,4 @@
-const app = angular.module('gifApp', []);
+const app = angular.module('gifApp', ['angularUtils.directives.dirPagination']);
 const baseURL= 'http://api.giphy.com/v1/gifs/';
 const apiKey= '&api_key=0rj09zTLmHbERPILRy44muwCAFJwgyCZ';
 
@@ -9,19 +9,25 @@ function gifSearch($http){
     self.searchResults= [ ];
 
 
-
     self.searchGif = function(searchString){
         $http({
             method: 'GET',
             url: baseURL + 'search?q=' + searchString + apiKey
         }).then(function(response){
-            self.searchResults = response.data.data;
+            self.searchResults = response.data;
             console.log(response);
-            
             console.log(self.searchResults);
+            
         }).catch(function(error){
         console.log(error, 'WOMP');
         })
+    }
+
+    self.addToOffset = function(){
+        console.log('in addToOffset--beg', self.searchResults.pagination.offset);
+        
+        self.searchResults.pagination.offset += 25;
+        console.log('in addToOffset--end', self.searchResults.pagination.offset);
     }
 }
 
