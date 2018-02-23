@@ -17,6 +17,7 @@ function gifSearch($http){
             self.searchResults = response.data;
             console.log(response);
             console.log(self.searchResults);
+            self.searchIn = '';
             
         }).catch(function(error){
         console.log(error, 'WOMP');
@@ -49,4 +50,4 @@ function gifRandom($http) {
         })
     }
 }
-
+const userFavoritesController = app.controller('favoriteGifs', [$http, userFavs])
