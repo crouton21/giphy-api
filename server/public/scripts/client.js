@@ -8,6 +8,8 @@ function gifSearch($http){
     self.searchIn = '';
     self.searchResults= [ ];
 
+
+
     self.searchGif = function(searchString){
         $http({
             method: 'GET',
@@ -26,5 +28,19 @@ function gifSearch($http){
 const randomGifController = app.controller('RandomGifController', ['$http', gifRandom])
 function gifRandom($http) {
     let self = this;
+
+    self.randomGifUrl;
+
+    self.searchRandom = function() {
+        $http({
+            method: 'GET',
+            url: baseURL + 'random?' + apiKey,
+        }).then(function(response) {
+            console.log(response);
+            self.randomGifUrl = response.data.data.images.downsized.url;
+        }).catch(function(error) {
+            console.log('WOMP', error);
+        })
+    }
 }
 
