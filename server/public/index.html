@@ -18,7 +18,10 @@
         Search for a GIF:
         <input type="text" ng-model="sc.searchIn">
         <button ng-click="sc.searchGif(sc.searchIn)">Go</button>
-        <img ng-href="">
+        <div ng-repeat="gif in sc.searchResults">
+           <img ng-src="{{gif.images.downsized.url}}" height="200"> 
+        </div>
+    
     </main>
     <main ng-controller="RandomGifController as rc">
         Search for a random GIF:
@@ -27,3 +30,6 @@
     </main>
 </body>
 </html>
+
+
+<!-- <img ng-href="gif.embed_url"> -->
