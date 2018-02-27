@@ -1,4 +1,4 @@
-const app = angular.module('gifApp', ['angularUtils.directives.dirPagination']);
+const app = angular.module('gifApp', ['ngMaterial', 'angularUtils.directives.dirPagination']);
 const baseURL= 'http://api.giphy.com/v1/gifs/';
 const apiKey= '&api_key=0rj09zTLmHbERPILRy44muwCAFJwgyCZ';
 

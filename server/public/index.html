@@ -24,7 +24,7 @@
             <button ng-click="sc.searchGif(sc.searchIn)">Go</button>
             </div><br>
             <div layout="row"><div dir-paginate="gif in sc.searchResults.data|filter:search|itemsPerPage:5">
-                <div flex="25"><img class="image" flex="25" ng-src="{{gif.images.downsized.url}}"></div>
+                <div flex="25"><img class="image" ng-src="{{gif.images.downsized.url}}"></div>
                 </div>
             </div>
             <!-- <button ng-click="sc.addToOffset()">Next</button> -->
